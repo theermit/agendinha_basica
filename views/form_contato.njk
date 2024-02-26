@@ -1,0 +1,32 @@
+{% extends 'template.njk' %}
+
+{% if acao == 'incluir_contato' %}
+{% set titulo = "novo contato" %}
+{% set readonly = "" %}
+{% endif %}
+{% if acao == 'editar_contato' %}
+{% set titulo = "editar contato" %}
+{% set readonly = "" %}
+{% endif %}
+{% if acao == 'apagar_contato' %}
+{% set titulo = "apagar contato" %}
+{% set readonly = "readonly" %}
+{% endif %}
+{% block title %}{{ titulo }}{% endblock %}
+{% block content %}
+<h1>{{ titulo }}</h1>
+<form method="post" action="/{{ acao }}">
+    <input type="hidden" name="id" value="{{ contato.id }}" >
+    <label for="nome">Nome</label><br>
+    <input type="text" name="nome" id="nome" value="{{ contato.nome }}" {{ readonly }} required><br>
+    <label for="nome">Telefone</label><br>
+    <input type="text" name="telefone" id="telefone" value="{{ contato.telefone }}" {{ readonly }} required><br>
+    <a href="#">Voltar</a>
+    {% if acao == 'incluir_contato' or acao == 'editar_contato' %}
+        <button type="reset">Limpar</button>
+        <button type="submit">Salvar</button>
+    {% else %}
+        <button type="submit">Apagar</button>
+    {% endif %}
+</form>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'template.njk' %}
+{% block title %} Lista de contatos {% endblock %}
+{% block content %}
+<h1>Lista de contatos</h1>
+<p><a href="/novo">Incluir</a></p>
+<table>
+    <thead>
+        <tr>
+            <th>nome</th>
+            <th>telefone</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if contatos|length > 0 %}
+            {% for contato in contatos %}
+                <tr>
+                    <td>{{ contato.nome }}</td>
+                    <td>{{ contato.telefone }}</td>
+                    <td><a href="/editar/{{ contato.id }}">Editar</a> <a href="/apagar/{{ contato.id }}">Apagar</a></td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            <tr>
+                <td colspan='3'>não há contatos</td>
+            </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% endblock %}
