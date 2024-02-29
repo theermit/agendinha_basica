@@ -20,11 +20,11 @@ module.exports = {
             .create(req.body)
             .then(res.render("mensagem.njk", {
                 mensagem: "Contato criado com sucesso!",
-                link: "/"
+                link: "/lista"
             }))
             .catch((err) => res.render("mensagem.njk", {
                 mensagem: "Falha na criação do contato!",
-                link: "/"
+                link: "/lista"
             }));
     },
     exibir_form_editar: (req, res) => {
@@ -42,7 +42,7 @@ module.exports = {
             })
             .catch((err) => res.render("mensagem.njk", {
                 mensagem: "Falha na consulta ao contato!",
-                link: "/"
+                link: "/lista"
             }));
         
     },
@@ -55,11 +55,11 @@ module.exports = {
             })
             .then(res.render("mensagem.njk", {
                 mensagem: "Contato alterado com sucesso!",
-                link: "/"
+                link: "/lista"
             }))
             .catch((err) => res.render("mensagem.njk", {
                 mensagem: "Falha na alteração do contato!",
-                link: "/"
+                link: "/lista"
             }));
     },
     exibir_form_apagar_contato: (req, res) => {
@@ -77,7 +77,7 @@ module.exports = {
             })
             .catch((err) => res.render("mensagem.njk", {
                 mensagem: "Falha na consulta ao contato!",
-                link: "/"
+                link: "/lista"
             }));
     },
     processar_apagar_contato: (req, res) => {
@@ -89,11 +89,11 @@ module.exports = {
             })
             .then(res.render("mensagem.njk", {
                 mensagem: "Contato excluído com sucesso!",
-                link: "/"
+                link: "/lista"
             }))
             .catch((err) => res.render("mensagem.njk", {
                 mensagem: "Falha na exclusão do contato!",
-                link: "/"
+                link: "/lista"
             }));
     }
 };

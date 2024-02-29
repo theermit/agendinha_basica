@@ -7,7 +7,7 @@ const contato_inc_edit_middleware = require("../middlewares/contatoMiddleware");
 
 //rotas
 //index -> lista de contatos
-router.get("/", contatoController.exibir_lista);
+router.get("/lista", contatoController.exibir_lista);
 
 //novo -> novo contato
 router.get("/novo", contatoController.exibir_form_novo);
