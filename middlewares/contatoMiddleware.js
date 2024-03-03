@@ -2,7 +2,7 @@ module.exports = (req, res, next) => {
     if(req.body.nome.length == 0 || req.body.telefone.length == 0)
         res.render("mensagem.njk", { 
             mensagem: "requisição inválida",
-            link: "/"
+            link: "/lista"
         });
     else 
         next();
