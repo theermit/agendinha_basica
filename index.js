@@ -11,6 +11,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 const templateConfigure = require("./services/templateService");
 templateConfigure(app);
 
+//configurar session
+const sessionService = require("./services/sessionService");
+app.use(sessionService); //req.session
 
 //routes
 const router = require("./routes/route");
